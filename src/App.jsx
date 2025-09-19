@@ -4,10 +4,11 @@ import Registration_form from './Components/Registration/Registration_form'
 import Home from './Home'
 import LoginForm from './Components/LoginForm/Login'
 // import BusList from './Components/BusList/BusList'
+
+import Help from './Components/Help/Help'
 import BusSeats from './Components/BusSeats/BusSeats'
 import UserBooking from './Components/UserBooking/UserBooking'
-
-// import Payment from "../src/Components/Payment/Payment";
+import Payment from "../src/Components/Payment/Payment";
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token'))
   const [userId, setUserId] = useState(localStorage.getItem('userId'))
@@ -28,8 +29,8 @@ const App = () => {
       <Route path='/bus/:busId' element={<BusSeats token={token} />} />
       <Route path='/my-bookings' element={<UserBooking token={token} userId={userId} />} />
     
-      {/* <Route path="/payment" element={<Payment token={token} />} /> */}
-    
+      <Route path="/payment" element={<Payment token={token} />} />
+     <Route path="/help" element={<Help />} />
     </Routes>
   </div>
 );

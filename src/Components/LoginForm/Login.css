@@ -4,7 +4,9 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #4facfe, #0044fe);
+  /* background: linear-gradient(135deg, #4facfe, #0044fe); */
+  background: linear-gradient(to right, #6366f1, #a855f7);
+  
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -25,7 +27,7 @@
 .title {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #2d3748;
+  color: #5b0a8e;
   margin: 0;
   text-align: center;
 }
@@ -81,7 +83,10 @@ label span {
 
 /* Button */
 .submit {
-  background: linear-gradient(135deg, #4facfe, #3385f8);
+  /* background: linear-gradient(135deg, #4facfe, #3385f8); */
+  background: linear-gradient(to right, #6366f1, #a855f7);
+  
+  
   color: white;
   border: none;
   padding: 12px;
@@ -104,7 +109,7 @@ label span {
 }
 
 .signin a {
-  color: #4facfe;
+  color: #784ffe;
   text-decoration: none;
   font-weight: 600;
 }

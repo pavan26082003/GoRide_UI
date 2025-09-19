@@ -38,7 +38,7 @@ const LoginForm = ({ onLogin }) => {
   }
 
   return (
-    <div id='main'>
+    <div id='main' bg-gradient-to-r from-indigo-500 to-purple-500>
       <form className='form' onSubmit={handleSubmit}>
         <p className='title'>Login</p>
         <p className='message'>Login now and get full access to our app.</p>
