@@ -1,0 +1,137 @@
+/* Container */
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4facfe, #0044fe);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Form card */
+.form {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Title & subtitle */
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0;
+  text-align: center;
+}
+
+.message {
+  font-size: 0.95rem;
+  color: #718096;
+  text-align: center;
+  margin: 0;
+}
+
+/* Input fields */
+label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  padding: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.input:focus {
+  border-color: #4facfe;
+  box-shadow: 0 0 6px rgba(79, 172, 254, 0.4);
+}
+
+label span {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  font-size: 0.9rem;
+  color: #a0aec0;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+/* Floating label effect */
+.input:focus + span,
+.input:not(:placeholder-shown) + span {
+  top: -10px;
+  left: 10px;
+  background: #fff;
+  padding: 0 6px;
+  font-size: 0.8rem;
+  color: #4facfe;
+}
+
+/* Button */
+.submit {
+  background: linear-gradient(135deg, #4facfe, #3385f8);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(79, 172, 254, 0.4);
+}
+
+/* Signup link */
+.signin {
+  font-size: 0.9rem;
+  color: #4a5568;
+  text-align: center;
+}
+
+.signin a {
+  color: #4facfe;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.signin a:hover {
+  text-decoration: underline;
+}
+
+/* Message */
+h5 {
+  text-align: center;
+  margin-top: 1rem;
+  color: #e53e3e; /* red for error */
+}
+
+h5:contains("✅") {
+  color: #38a169; /* green for success */
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
