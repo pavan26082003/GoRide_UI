@@ -9,6 +9,7 @@ import Help from './Components/Help/Help'
 import BusSeats from './Components/BusSeats/BusSeats'
 import UserBooking from './Components/UserBooking/UserBooking'
 import Payment from "../src/Components/Payment/Payment";
+import MyBuses from './Components/MyBuses/MyBuses'
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token'))
   const [userId, setUserId] = useState(localStorage.getItem('userId'))
@@ -31,6 +32,7 @@ const App = () => {
     
       <Route path="/payment" element={<Payment token={token} />} />
      <Route path="/help" element={<Help />} />
+     <Route path="/my-buses" element={<MyBuses/>} />
     </Routes>
   </div>
 );

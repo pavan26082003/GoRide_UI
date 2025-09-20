@@ -15,7 +15,7 @@
 
 //       try {
 //         const response = await axios.get(
-//           `http://localhost:8000/api/user/${userId}/bookings/`,
+//           `https://go-ride-django.onrender.com/api/user/${userId}/bookings/`,
 //           { headers: { Authorization: `Token ${token}` } }
 //         );
 //         setBookings(response.data);
@@ -106,7 +106,7 @@ const UserBookings = ({ token, userId }) => {
 
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/user/${userId}/bookings/`,
+          `https://go-ride-django.onrender.com/api/user/${userId}/bookings/`,
           { headers: { Authorization: `Token ${token}` } }
         );
         setBookings(response.data);

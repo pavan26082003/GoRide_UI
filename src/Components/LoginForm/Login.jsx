@@ -19,7 +19,7 @@ const LoginForm = ({ onLogin }) => {
     e.preventDefault()
 
     try {
-      const response = await axios.post('http://localhost:8000/api/login/', form)
+      const response = await axios.post('https://go-ride-django.onrender.com/api/login/', form)
       setMessage('✅ Login Successful')
 
       if (onLogin) {

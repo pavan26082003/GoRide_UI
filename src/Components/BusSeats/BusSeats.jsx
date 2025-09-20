@@ -16,7 +16,7 @@
 //     useEffect(()=>{
 //         const fetchBusDetails = async()=>{
 //             try {
-//               const response = await axios(`http://localhost:8000/api/buses/${busId}`)
+//               const response = await axios(`https://go-ride-django.onrender.com/api/buses/${busId}`)
 //                 console.log("Bus response:", response.data)
 
               
@@ -36,7 +36,7 @@
 //             return;
 //         }
 //         try {
-//             const response = await axios.post("http://localhost:8000/api/booking/",
+//             const response = await axios.post("https://go-ride-django.onrender.com/api/booking/",
 //                 {seat:seatId},
 //                 {
 //                     headers:{
@@ -163,7 +163,7 @@ const BusSeats = ({ token }) => {
     const fetchBusDetails = async () => {
       try {
         const response = await axios(
-          `http://localhost:8000/api/buses/${busId}`
+          `https://go-ride-django.onrender.com/api/buses/${busId}`
         );
         setBus(response.data);
         setSeats(response.data.seats || []);
@@ -182,7 +182,7 @@ const BusSeats = ({ token }) => {
     }
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/booking/",
+        "https://go-ride-django.onrender.com/api/booking/",
         { seat: seatId },
         {
           headers: {

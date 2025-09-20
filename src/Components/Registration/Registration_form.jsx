@@ -23,7 +23,7 @@ const Registration_form = () => {
     e.preventDefault()
 
     try {
-      await axios.post('http://localhost:8000/api/register/', form)
+      await axios.post('https://go-ride-django.onrender.com/api/register/', form)
       setMessage('✅ Registration Successful')
       navigate('/login')
     } catch (error) {
