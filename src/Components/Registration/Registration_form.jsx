@@ -4,8 +4,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 const Registration_form = () => {
-
-  const navigate=useNavigate()
+  const navigate = useNavigate()
 
   const [form, setForm] = useState({
     username: '',
@@ -14,6 +13,7 @@ const Registration_form = () => {
   })
 
   const [message, setMessage] = useState('')
+  const [loading, setLoading] = useState(false) // ✅ Loading state
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -21,6 +21,8 @@ const Registration_form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true) // start loading
+    setMessage('')
 
     try {
       await axios.post('https://go-ride-django.onrender.com/api/register/', form)
@@ -28,8 +30,12 @@ const Registration_form = () => {
       navigate('/login')
     } catch (error) {
       setMessage(
-        `❌ Registration Failed: ${error.response?.data?.username || error.message}`
+        `❌ Registration Failed: ${
+          error.response?.data?.username || error.message
+        }`
       )
+    } finally {
+      setLoading(false) // stop loading
     }
   }
 
@@ -78,8 +84,8 @@ const Registration_form = () => {
           <span>Password</span>
         </label>
 
-        <button type='submit' className='submit'>
-          Submit
+        <button type='submit' className='submit' disabled={loading}>
+          {loading ? '⏳ Submitting...' : 'Submit'}
         </button>
 
         <p className='signin'>

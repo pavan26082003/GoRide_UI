@@ -2,14 +2,16 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import './Login.css'
 import { useNavigate } from 'react-router-dom'
+
 const LoginForm = ({ onLogin }) => {
   const [form, setForm] = useState({
     username: '',
     password: ''
   })
-  const navigate=useNavigate()
+  const navigate = useNavigate()
 
   const [message, setMessage] = useState('')
+  const [loading, setLoading] = useState(false) // ✅ Loading state
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -17,9 +19,14 @@ const LoginForm = ({ onLogin }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
+    setMessage('')
 
     try {
-      const response = await axios.post('https://go-ride-django.onrender.com/api/login/', form)
+      const response = await axios.post(
+        'https://go-ride-django.onrender.com/api/login/',
+        form
+      )
       setMessage('✅ Login Successful')
 
       if (onLogin) {
@@ -31,14 +38,18 @@ const LoginForm = ({ onLogin }) => {
       console.log(error.response?.data)
       setMessage(
         `❌ Login Failed: ${
-          error.response?.data?.detail || error.message || 'Please enter correct credentials'
+          error.response?.data?.detail ||
+          error.message ||
+          'Please enter correct credentials'
         }`
       )
+    } finally {
+      setLoading(false) // ✅ Stop loading after request
     }
   }
 
   return (
-    <div id='main' bg-gradient-to-r from-indigo-500 to-purple-500>
+    <div id='main'>
       <form className='form' onSubmit={handleSubmit}>
         <p className='title'>Login</p>
         <p className='message'>Login now and get full access to our app.</p>
@@ -69,8 +80,8 @@ const LoginForm = ({ onLogin }) => {
           <span>Password</span>
         </label>
 
-        <button type='submit' className='submit'>
-          Submit
+        <button type='submit' className='submit' disabled={loading}>
+          {loading ? '⏳ Logging in...' : 'Submit'}
         </button>
 
         <p className='signin'>
